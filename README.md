@@ -98,7 +98,7 @@ Install Python and Jupyter Notebook/JupyterLab.
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone <repository-https://github.com/subhashchandra2205/Financial-analysis/tree/main>
 cd <Financial-analysis>
 ```
 
