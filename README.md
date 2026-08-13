@@ -319,7 +319,7 @@ The project generates individual time-series plots for stocks such as:
 ## 1. Clone the Repository
 
 ```bash
-git clone <YOUR-GITHUB-REPOSITORY-URL>
+git clone <https://github.com/subhashchandra2205/Financial-analysis>
 ```
 
 Navigate to the project directory:
@@ -397,15 +397,6 @@ This project is created for **educational and analytical purposes only**.
 The analysis presented in this repository should not be considered financial advice or a recommendation to buy, hold, or sell any security.
 
 Past performance does not guarantee future results.
-
----
-
-# 👤 Author
-
-**Subhash Chandra**
-
-Mechanical Engineering
-**IIT Madras**
 
 ---
 
