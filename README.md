@@ -1,25 +1,26 @@
-# 📈 Stock Market Analysis, CAPM & Portfolio Optimization
+# 📈 Indian Stock Market Analysis & Portfolio Optimization
 
-A Python-based financial analysis project that studies historical stock-market data, evaluates stock performance and risk, applies the **Capital Asset Pricing Model (CAPM)**, analyzes portfolio asset allocation, and incorporates **stock sentiment analysis**.
+A Python-based financial data analysis project focused on studying the historical performance, risk, returns, and market behavior of selected Indian stocks. The project combines **stock data analysis, visualization, CAPM analysis, portfolio asset allocation, and sentiment analysis** to derive data-driven insights from financial market data.
 
 ---
 
 ## 📌 Project Overview
 
-This project uses historical market data to analyze the performance and risk characteristics of selected Indian stocks and the NIFTY 50 index.
+This project analyzes historical stock-market data for **10 major Indian companies** along with the **NIFTY 50 index** as a market benchmark.
 
-The project combines:
+Historical adjusted closing prices are collected using the `yfinance` library and processed using Python's data-analysis and visualization libraries.
 
-* 📊 Stock market data analysis
-* 📈 Historical price visualization
-* 💰 Return analysis
-* ⚖️ Risk and volatility analysis
-* 📐 CAPM analysis
-* 🧮 Portfolio asset allocation
+The project covers:
+
+* 📊 Historical stock price analysis
+* 📈 Stock performance visualization
+* 📉 Return and risk analysis
+* 📐 Capital Asset Pricing Model (CAPM)
+* ⚖️ Portfolio asset allocation
 * 📰 Stock sentiment analysis
-* 📉 Data visualization
+* 📊 Statistical and interactive visualizations
 
-Historical market data is obtained using **Yahoo Finance through the `yfinance` Python library**.
+The historical data used in the analysis spans approximately **January 2012 to April 2023**.
 
 ---
 
@@ -27,91 +28,117 @@ Historical market data is obtained using **Yahoo Finance through the `yfinance` 
 
 The main objectives of this project are:
 
-1. Analyze historical price movements of selected Indian stocks.
-2. Compare the performance of different stocks against the NIFTY 50.
-3. Calculate and analyze stock returns.
-4. Study the risk and volatility associated with individual stocks.
-5. Apply CAPM to estimate expected returns and systematic risk.
+1. Collect and analyze historical stock-market data.
+2. Study the price movement of selected Indian stocks.
+3. Compare individual stock performance with the NIFTY 50.
+4. Analyze stock returns and risk.
+5. Apply the **Capital Asset Pricing Model (CAPM)** to evaluate systematic risk and expected returns.
 6. Analyze different portfolio asset allocation strategies.
-7. Study stock-related sentiment and its potential relationship with market behavior.
-8. Use visualizations to communicate financial insights effectively.
+7. Study stock-market sentiment using sentiment data.
+8. Present financial insights through effective visualizations.
 
 ---
 
-## 📂 Project Structure
+## 📊 Stocks & Market Index
+
+The project analyzes the following **11 assets**:
+
+| Company / Index           | Yahoo Finance Ticker |
+| ------------------------- | -------------------- |
+| Reliance Industries       | `RELIANCE.NS`        |
+| Tata Consultancy Services | `TCS.NS`             |
+| HDFC Bank                 | `HDFCBANK.NS`        |
+| Bharti Airtel             | `BHARTIARTL.NS`      |
+| ICICI Bank                | `ICICIBANK.NS`       |
+| State Bank of India       | `SBIN.NS`            |
+| Infosys                   | `INFY.NS`            |
+| ITC                       | `ITC.NS`             |
+| Adani Enterprises         | `ADANIENT.NS`        |
+| Tata Motors               | `TATAMOTORS.NS`      |
+| NIFTY 50                  | `^NSEI`              |
+
+The **NIFTY 50** is used as the market benchmark for comparative analysis.
+
+---
+
+## 📅 Dataset
+
+### Historical Market Data
+
+The stock data is downloaded using Yahoo Finance through the `yfinance` library.
+
+**Requested period:**
 
 ```text
-Stock-Market-Analysis/
+Start Date: 2012-01-01
+End Date:   2023-04-30
+```
+
+After removing missing observations, the analysis contains approximately:
+
+```text
+2,776 rows × 11 columns
+```
+
+The project primarily uses the **Adjusted Close** price for analysis.
+
+### Data Processing
+
+The workflow includes:
+
+1. Downloading historical data.
+2. Selecting adjusted closing prices.
+3. Combining the assets into a single Pandas DataFrame.
+4. Handling missing values using `dropna()`.
+5. Preparing the data for further financial analysis.
+6. Normalizing data where required for comparison and visualization.
+
+---
+
+# 📂 Project Structure
+
+```text
+Indian-Stock-Market-Analysis/
 │
 ├── CAPM.ipynb
-│
 ├── Portfolio_Assets_Allocation.ipynb
-│
 ├── Stocks_Data_Analysis_and_Visualization.ipynb
-│
 ├── stock_sentiment.csv
-│
 └── README.md
 ```
 
 ---
 
-## 📊 Stocks & Market Index Used
-
-The analysis considers **11 assets**, including the NIFTY 50 benchmark.
-
-| Asset                     | Ticker          |
-| ------------------------- | --------------- |
-| Reliance Industries       | `RELIANCE.NS`   |
-| Tata Consultancy Services | `TCS.NS`        |
-| HDFC Bank                 | `HDFCBANK.NS`   |
-| Bharti Airtel             | `BHARTIARTL.NS` |
-| ICICI Bank                | `ICICIBANK.NS`  |
-| State Bank of India       | `SBIN.NS`       |
-| Infosys                   | `INFY.NS`       |
-| ITC                       | `ITC.NS`        |
-| Adani Enterprises         | `ADANIENT.NS`   |
-| Tata Motors               | `TATAMOTORS.NS` |
-| NIFTY 50                  | `^NSEI`         |
-
-### 📅 Data Period
-
-**1 January 2012 – 30 April 2023**
-
-The analysis uses the **Adjusted Close** price for the selected securities.
-
----
-
-# 📁 Notebooks
+# 📓 Project Notebooks
 
 ## 1. 📊 Stock Data Analysis & Visualization
 
 ### `Stocks_Data_Analysis_and_Visualization.ipynb`
 
-This notebook performs exploratory analysis of historical stock-market data.
+This notebook focuses on exploratory analysis and visualization of historical stock-market data.
 
-### Key activities
+### Main tasks
 
-* Download historical stock data
-* Examine stock price movements
-* Analyze adjusted closing prices
-* Calculate returns
+* Download historical stock data using `yfinance`
+* Create a combined stock-price DataFrame
+* Handle missing values
+* Analyze historical price movements
+* Normalize stock-price data
 * Compare stock performance
-* Analyze volatility
-* Generate statistical insights
-* Create visualizations for financial data
+* Generate multiple stock-price plots
+* Visualize trends across different companies and the NIFTY 50
 
-The notebook uses `yfinance` to retrieve historical market data and stores the downloaded data in Pandas DataFrames for further analysis.
+The notebook uses multiple visualizations to make comparison between the selected securities easier.
 
 ---
 
-## 2. 📐 Capital Asset Pricing Model
+## 2. 📐 Capital Asset Pricing Model (CAPM)
 
 ### `CAPM.ipynb`
 
-This notebook applies the **Capital Asset Pricing Model (CAPM)** to analyze the relationship between risk and expected return.
+The CAPM notebook evaluates the relationship between the expected return of an asset and its systematic risk relative to the market.
 
-CAPM is expressed as:
+The CAPM equation is:
 
 ```text
 E(Rᵢ) = Rf + βᵢ [E(Rm) − Rf]
@@ -119,21 +146,20 @@ E(Rᵢ) = Rf + βᵢ [E(Rm) − Rf]
 
 Where:
 
-* `E(Rᵢ)` = Expected return of the asset
+* `E(Rᵢ)` = Expected return of the stock
 * `Rf` = Risk-free rate
-* `βᵢ` = Beta of the asset
+* `βᵢ` = Beta of the stock
 * `E(Rm)` = Expected market return
 
-The analysis can be used to understand how individual stocks behave relative to the broader market.
+### CAPM helps analyze
 
-### Key concepts
-
-* Market return
-* Stock return
-* Beta
 * Systematic risk
+* Market sensitivity
+* Beta
 * Expected return
 * Risk-return relationship
+
+The NIFTY 50 is used as the market reference for the analysis.
 
 ---
 
@@ -141,17 +167,20 @@ The analysis can be used to understand how individual stocks behave relative to 
 
 ### `Portfolio_Assets_Allocation.ipynb`
 
-This notebook focuses on constructing and evaluating portfolios using multiple assets.
+This notebook focuses on portfolio construction and asset allocation.
 
-The analysis examines the relationship between:
+The analysis studies how allocating capital among different stocks affects the overall characteristics of a portfolio.
 
-* Portfolio return
+### Key areas
+
+* Asset allocation
+* Portfolio returns
 * Portfolio risk
-* Asset weights
 * Diversification
 * Risk-return trade-off
+* Comparison of different allocations
 
-Different asset allocations can be compared to understand how portfolio composition affects overall performance and risk.
+The objective is to understand how portfolio composition can influence investment performance and risk.
 
 ---
 
@@ -159,61 +188,135 @@ Different asset allocations can be compared to understand how portfolio composit
 
 ### `stock_sentiment.csv`
 
-The project also includes a sentiment dataset containing stock-related information.
+The project also contains a stock sentiment dataset.
 
-The dataset can be used to analyze market sentiment and investigate whether positive or negative sentiment is associated with changes in stock-market behavior.
+This dataset can be used to investigate market sentiment associated with stocks and explore the relationship between sentiment and financial-market behavior.
+
+The sentiment component complements the quantitative stock-price analysis by adding a qualitative market perspective.
 
 ---
 
-# 🛠️ Technologies & Libraries
+# 🛠️ Technologies Used
 
-The project is developed using **Python** and Jupyter Notebook.
+The project is developed using **Python and Jupyter Notebook**.
 
-### Core libraries
+### Programming Language
+
+* Python
+
+### Data Analysis
+
+* `Pandas`
+* `NumPy`
+
+### Financial Data
+
+* `yFinance`
+
+### Visualization
+
+* `Matplotlib`
+* `Seaborn`
+* `Plotly`
+
+### Statistical Analysis
+
+* `SciPy`
+
+---
+
+## 📦 Libraries
+
+```python
+import pandas as pd
+import yfinance as yf
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
+from scipy import stats
+```
+
+---
+
+# 🔬 Methodology
+
+The overall workflow of the project is:
 
 ```text
-Python
-Jupyter Notebook
-Pandas
-NumPy
-yFinance
-Matplotlib
-Seaborn
-SciPy
-Plotly
+              Historical Stock Data
+                       │
+                       ▼
+              Data Collection
+                 using yFinance
+                       │
+                       ▼
+              Data Preprocessing
+                       │
+              ┌────────┴────────┐
+              ▼                 ▼
+       Missing Value         Normalization
+         Handling
+              │                 │
+              └────────┬────────┘
+                       ▼
+             Exploratory Analysis
+                       │
+                       ▼
+              Stock Visualization
+                       │
+             ┌─────────┼─────────┐
+             ▼         ▼         ▼
+          Returns     Risk      CAPM
+             │         │         │
+             └─────────┼─────────┘
+                       ▼
+              Portfolio Analysis
+                       │
+                       ▼
+              Sentiment Analysis
+                       │
+                       ▼
+              Financial Insights
 ```
-
-### Library usage
-
-| Library    | Purpose                            |
-| ---------- | ---------------------------------- |
-| Pandas     | Data manipulation and analysis     |
-| NumPy      | Numerical calculations             |
-| yFinance   | Downloading historical market data |
-| Matplotlib | Data visualization                 |
-| Seaborn    | Statistical visualization          |
-| SciPy      | Statistical analysis               |
-| Plotly     | Interactive visualizations         |
 
 ---
 
-# 🚀 Getting Started
+# 📈 Visualizations
 
-## Prerequisites
+The project generates visualizations to study the historical behavior of the selected stocks.
 
-Make sure Python is installed on your system.
+Examples include:
 
-You can install the required libraries using:
+* Individual stock price trends
+* Comparative stock-price charts
+* Normalized price comparisons
+* Portfolio-related visualizations
+* CAPM-related analysis
+* Interactive Plotly visualizations
 
-```bash
-pip install pandas numpy yfinance matplotlib seaborn scipy plotly jupyter
-```
+### Sample Stock Price Analysis
+
+The project generates individual time-series plots for stocks such as:
+
+* Reliance Industries
+* TCS
+* HDFC Bank
+* Bharti Airtel
+* ICICI Bank
+* SBI
+* Infosys
+* ITC
+* Adani Enterprises
+* Tata Motors
+* NIFTY 50
 
 ---
 
-## ▶️ Running the Project
+# 🚀 How to Run the Project
 
-Clone the repository:
+## 1. Clone the Repository
 
 ```bash
 git clone <YOUR-GITHUB-REPOSITORY-URL>
@@ -222,56 +325,46 @@ git clone <YOUR-GITHUB-REPOSITORY-URL>
 Navigate to the project directory:
 
 ```bash
-cd Stock-Market-Analysis
+cd Indian-Stock-Market-Analysis
 ```
 
-Start Jupyter Notebook:
+## 2. Install Dependencies
+
+```bash
+pip install pandas numpy yfinance matplotlib seaborn scipy plotly jupyter
+```
+
+## 3. Start Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-Then open the required `.ipynb` file.
+Open the notebooks from the Jupyter interface.
 
----
-
-# 🔬 Methodology
-
-The overall workflow of the project can be summarized as:
+### Recommended order
 
 ```text
-Historical Market Data
-        ↓
-Data Collection using yFinance
-        ↓
-Data Cleaning & Preparation
-        ↓
-Exploratory Data Analysis
-        ↓
-Return & Risk Analysis
-        ↓
-CAPM Analysis
-        ↓
-Portfolio Asset Allocation
-        ↓
-Sentiment Analysis
-        ↓
-Visualization & Insights
+1. Stocks_Data_Analysis_and_Visualization.ipynb
+2. CAPM.ipynb
+3. Portfolio_Assets_Allocation.ipynb
 ```
+
+The sentiment dataset can be used alongside the relevant analysis.
 
 ---
 
-# 📈 Expected Analysis
+# 📊 Key Insights
 
 The project provides a framework for understanding:
 
-* Historical stock price behavior
-* Relative stock performance
-* Investment returns
-* Stock volatility
-* Market-related systematic risk
-* CAPM beta
-* Expected returns
+* Long-term stock-price movements
+* Relative performance of major Indian companies
+* Market benchmark performance
+* Stock return behavior
+* Investment risk
+* Systematic market risk
+* CAPM-based expected returns
 * Portfolio diversification
 * Asset allocation
 * Market sentiment
@@ -280,25 +373,30 @@ The project provides a framework for understanding:
 
 # 🔮 Future Improvements
 
-Possible improvements to the project include:
+The project can be extended by adding:
 
-* Add real-time market data
-* Implement automated portfolio optimization
-* Include Sharpe ratio and other risk-adjusted performance metrics
-* Add Value at Risk (VaR) analysis
-* Develop an interactive financial dashboard
-* Improve sentiment analysis using NLP
-* Compare multiple portfolio optimization techniques
-* Add backtesting of portfolio strategies
-* Automate the complete analysis pipeline
+* Real-time stock-market data
+* Automated portfolio optimization
+* Sharpe ratio analysis
+* Sortino ratio analysis
+* Value at Risk (VaR)
+* Maximum drawdown analysis
+* Efficient Frontier visualization
+* Portfolio backtesting
+* More advanced NLP-based sentiment analysis
+* Interactive Streamlit dashboard
+* Automated investment-performance reports
+* Additional Indian and international market indices
 
 ---
 
 # ⚠️ Disclaimer
 
-This project is intended for **educational and analytical purposes only**.
+This project is created for **educational and analytical purposes only**.
 
-The analysis and results should not be considered financial advice or a recommendation to buy or sell any security.
+The analysis presented in this repository should not be considered financial advice or a recommendation to buy, hold, or sell any security.
+
+Past performance does not guarantee future results.
 
 ---
 
@@ -307,17 +405,28 @@ The analysis and results should not be considered financial advice or a recommen
 **Subhash Chandra**
 
 Mechanical Engineering
-IIT Madras
+**IIT Madras**
 
 ---
 
 ## ⭐ Project Highlights
 
-* Analysis of **11 Indian stocks/market assets**
-* Historical data covering **2012–2023**
-* Yahoo Finance data acquisition
-* Stock return and risk analysis
-* CAPM-based analysis
-* Portfolio asset allocation
-* Stock sentiment analysis
-* Static and interactive financial visualizations
+```text
+✓ 10 Indian Stocks + NIFTY 50
+✓ ~2,776 observations
+✓ Historical data from 2012–2023
+✓ Yahoo Finance data collection
+✓ Stock price analysis
+✓ Data preprocessing & normalization
+✓ Financial data visualization
+✓ CAPM analysis
+✓ Portfolio asset allocation
+✓ Stock sentiment analysis
+✓ Python-based financial analytics
+```
+
+---
+
+## 📜 License
+
+This project is intended for educational purposes. You are free to explore and modify the code with appropriate attribution.
